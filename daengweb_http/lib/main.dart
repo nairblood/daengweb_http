@@ -13,7 +13,7 @@ class DigitalQuran extends StatefulWidget {
 }
 
 class DigitalQuranState extends State<DigitalQuran> {
-  //DEFINE VARIABLE url UNTUK MENAMPUNG END POINT
+  //api url
   final String url = 'https://api.banghasan.com/quran/format/json/surat';
   List data; //DEFINE VARIABLE data DENGAN TYPE List AGAR DAPAT MENAMPUNG COLLECTION / ARRAY
 
@@ -21,17 +21,17 @@ class DigitalQuranState extends State<DigitalQuran> {
 @override
 void initState() {
     super.initState();
-    this.getData(); //PANGGIL FUNGSI YANG TELAH DIBUAT SEBELUMNYA
+    this.getData(); 
 
 
 
 }
   Future<String> getData() async {
-    // MEMINTA DATA KE SERVER DENGAN KETENTUAN YANG DI ACCEPT ADALAH JSON
+    
     var res = await http.get(Uri.encodeFull(url), headers: { 'accept':'application/json' });
     
     setState(() {
-      //RESPONSE YANG DIDAPATKAN DARI API TERSEBUT DI DECODE
+    
       var content = json.decode(res.body);
       //KEMUDIAN DATANYA DISIMPAN KE DALAM VARIABLE data, 
       //DIMANA SECARA SPESIFIK YANG INGIN KITA AMBIL ADALAH ISI DARI KEY hasil
@@ -49,7 +49,7 @@ Widget build(context) {
         body: Container(
           margin: EdgeInsets.all(10.0), //SET MARGIN DARI CONTAINER
           child: ListView.builder( //MEMBUAT LISTVIEW
-            itemCount: data == null ? 0:data.length, //KETIKA DATANYA KOSONG KITA ISI DENGAN 0 DAN APABILA ADA MAKA KITA COUNT JUMLAH DATA YANG ADA
+            itemCount: data == null ? 0:data.length, // APABILA ADA MAKA KITA COUNT JUMLAH DATA YANG ADA
             itemBuilder: (BuildContext context, int index) { 
               return Container(
                 child: Card(
@@ -57,19 +57,12 @@ Widget build(context) {
                     mainAxisSize: MainAxisSize.min, children: <Widget>[
                     //ListTile MENGELOMPOKKAN WIDGET MENJADI BEBERAPA BAGIAN
                     ListTile(
-                      //leading TAMPIL PADA SEBELAH KIRI
-                      // DIMANA VALUE DARI leading ADALAH WIDGET TEXT
-                      // YANG BERISI NOMOR SURAH
+                      // berisi noomer
                       leading: Text(data[index]['nomor'], style: TextStyle(fontSize: 30.0),),
-                      //title TAMPIL DITENGAH SETELAH leading
-                      // VALUENYA ADALAH WIDGET TEXT
-                      // YANG BERISI NAMA SURAH
+                      //berisi surat
                       title: Text(data[index]['nama'], style: TextStyle(fontSize: 25.0, fontWeight: FontWeight.bold),),
-                      //trailing TAMPIL PADA SEBELAH KANAN SETELAH title
-                      //VALUE NYA ADALAH IMAGE, KETIKA VALUENYA DARI type ADALAH
-                      // MEKAH MAKA AKAN MENAMPILKAN mekah.jpg
-                      // SELAIN DARI ITU MENAMPILKAN IMAGE madinah.png
-                      trailing: Image.asset(data[index]['type'] == 'mekah' ? 'mekah.jpg':'madinah.png', width: 32.0, height: 32.0,),
+                      //gambar
+                      trailing: Image.asset(data[index]['type'] == 'mekah' ? 'mekah.jpg':'madinah.png', width: 30.0, height: 30.0,),
                       //subtitle TAMPIL TEPAT DIBAWAH title
                       subtitle: Column(children: <Widget>[ //MENGGUNAKAN COLUMN
                         //DIMANA MASING-MASING COLUMN TERDAPAT ROW
@@ -99,19 +92,19 @@ Widget build(context) {
                         ),
                       ],),
                     ),
-                    //TERAKHIR, MEMBUAT BUTTON
+                   
                     ButtonTheme.bar(
                       child: ButtonBar(
                         children: <Widget>[
-                          // BUTTON PERTAMA 
+                          // BUTTON  
                           FlatButton(
-                            //DENGAN TEXT LIHAT DETAIL
+                            // LIHAT DETAIL
                             child: const Text('LIHAT DETAIL'),
                             onPressed: () { /* ... */ },
                           ),
                           //BUTTON KEDUA
                           FlatButton(
-                            //DENGAN TEXT DENGARKAN
+                            // DENGARKAN
                             child: const Text('DENGARKAN'),
                             onPressed: () { /* ... */ },
                           ),
