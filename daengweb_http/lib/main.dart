@@ -63,7 +63,7 @@ Widget build(context) {
                       //berisi surat
                       title: Text(data[index]['nama'], style: TextStyle(fontSize: 25.0, fontWeight: FontWeight.bold),),
                       //gambar
-                      trailing: Image.asset(data[index]['type'] == 'mekah' ? 'mekah.jpg':'madinah.png', width: 30.0, height: 30.0,),
+                      trailing: Image.asset(data[index]['type'] == 'mekah' ? 'imgg/mekah.jpg':'imgg/madinah.png', width: 30.0, height: 30.0,),
                       //subtitle TAMPIL TEPAT DIBAWAH title
                       subtitle: Column(children: <Widget>[ //MENGGUNAKAN COLUMN
                         //DIMANA MASING-MASING COLUMN TERDAPAT ROW
