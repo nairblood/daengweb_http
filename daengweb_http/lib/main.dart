@@ -4,6 +4,7 @@ import 'dart:async';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 
+
 void main() {
   runApp(DigitalQuran());
 }
@@ -105,7 +106,7 @@ Widget build(context) {
                           //BUTTON KEDUA
                           FlatButton(
                             // DENGARKAN
-                            child: const Text('DENGARKAN'),
+                            child: const Text('LISTEN'),
                             onPressed: () { /* ... */ },
                           ),
                         ],
