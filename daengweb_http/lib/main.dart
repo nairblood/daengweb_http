@@ -59,13 +59,15 @@ Widget build(context) {
                     //ListTile MENGELOMPOKKAN WIDGET MENJADI BEBERAPA BAGIAN
                     ListTile(
                       // berisi noomer
-                      leading: Text(data[index]['nomor'], style: TextStyle(fontSize: 30.0),),
+                      leading: Text(data[index]['nomor'], 
+                      style: TextStyle(fontSize: 30.0),),
                       //berisi surat
-                      title: Text(data[index]['nama'], style: TextStyle(fontSize: 25.0, fontWeight: FontWeight.bold),),
+                      title: Text(data[index]['nama'], style: 
+                      TextStyle(fontSize: 25.0, fontWeight: FontWeight.bold),),
                       //gambar
                       trailing: Image.asset(data[index]['type'] == 'mekah' ? 'imgg/mekah.jpg':'imgg/madinah.png', width: 30.0, height: 30.0,),
                       //subtitle TAMPIL TEPAT DIBAWAH title
-                      subtitle: Column(children: <Widget>[ //MENGGUNAKAN COLUMN
+                      subtitle: Column(children: <Widget>[ //mengunakan kolom row k ebawah
                         //DIMANA MASING-MASING COLUMN TERDAPAT ROW
                         Row(
                           children: <Widget>[
@@ -76,6 +78,7 @@ Widget build(context) {
                           ],
                         ),
                         //ROW SELANJUTNYA MENAMPILKAN JUMLAH AYAT
+                        
                         Row(
                           children: <Widget>[
                             Text('Jumlah Ayat : ', style: TextStyle(fontWeight: FontWeight.bold),),
