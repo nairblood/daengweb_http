@@ -20,9 +20,9 @@ class DigitalQuranState extends State<DigitalQuran> {
 
 
 @override
-void initState() {
+void initState() {//memangil data state
     super.initState();
-    this.getData(); 
+    this.getData(); // dekelarasi state di get data
 
 
 
@@ -30,6 +30,7 @@ void initState() {
   Future<String> getData() async {
     
     var res = await http.get(Uri.encodeFull(url), headers: { 'accept':'application/json' });
+    // minta data acses dengan ketentuan json
     
     setState(() {
     
@@ -40,9 +41,10 @@ void initState() {
     });
     return 'success!';
   }
+
 Widget build(context) {
     return MaterialApp(
-      title: 'Digital Quran',
+      title: 'baca al-Quran',
       home: Scaffold(
         appBar: AppBar(
           title: Text('Digital Quran')
@@ -72,16 +74,19 @@ Widget build(context) {
                         Row(
                           children: <Widget>[
                             //MENAMPILKAN TEXT arti
-                            Text('Arti : ', style: TextStyle(fontWeight: FontWeight.bold),),
+                            Text('Arti : ', style:
+                            TextStyle(fontWeight: FontWeight.bold),),
                             //MENAMPILKAN TEXT DARI VALUE arti
-                            Text(data[index]['arti'], style: TextStyle(fontStyle: FontStyle.italic, fontSize: 15.0),),
+                            Text(data[index]['arti'], style: 
+                            TextStyle(fontStyle: FontStyle.italic, fontSize: 15.0),),
                           ],
                         ),
                         //ROW SELANJUTNYA MENAMPILKAN JUMLAH AYAT
                         
                         Row(
                           children: <Widget>[
-                            Text('Jumlah Ayat : ', style: TextStyle(fontWeight: FontWeight.bold),),
+                            Text('Jumlah Ayat : ', style: 
+                            TextStyle(fontWeight: FontWeight.bold),),
                             //DARI INDEX ayat
                             Text(data[index]['ayat'])
                           ],
@@ -89,7 +94,8 @@ Widget build(context) {
                         //MENAMPILKAN DIMANA SURAH TERSEBUT DITURUNKAN
                         Row(
                           children: <Widget>[
-                            Text('Diturunkan : ', style: TextStyle(fontWeight: FontWeight.bold),),
+                            Text('Diturunkan : ', style: 
+                            TextStyle(fontWeight: FontWeight.bold),),
                             //DENGAN INDEX type
                             Text(data[index]['type'])
                           ],
@@ -123,6 +129,6 @@ Widget build(context) {
         )
       ),
     );
-}
+} 
 
 }
