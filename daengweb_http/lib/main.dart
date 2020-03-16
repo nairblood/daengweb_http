@@ -106,12 +106,17 @@ Widget build(context) {
                     ButtonTheme.bar(
                       child: ButtonBar(
                         children: <Widget>[
+                          //  Text(data[index]['keterangan'])
                           // BUTTON  
                           FlatButton(
+                            
                             // LIHAT DETAIL
                             child: const Text('LIHAT DETAIL'),
+                            
                             onPressed: () { /* ... */ },
+                           
                           ),
+                        
                           //BUTTON KEDUA
                           FlatButton(
                             // DENGARKAN
